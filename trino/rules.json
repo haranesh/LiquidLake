@@ -11,8 +11,9 @@
       "allow": "read-only"
     },
     {
-      "catalog": "system",
-      "allow": "none"
+      "user": "trino",
+      "catalog": ".*",
+      "allow": "all"
     }
   ]
 }

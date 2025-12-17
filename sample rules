@@ -1,0 +1,52 @@
+{
+  "catalogs": [
+    {
+      "user": "admin",
+      "catalog": ".*",
+      "allow": "all"
+    },
+    {
+      "user": "alice",
+      "catalog": "iceberg",
+      "allow": "all"
+    },
+    {
+      "user": "bob",
+      "catalog": "iceberg",
+      "allow": "read-only"
+    },
+    {
+    "user": ".*",
+    "catalog": ".*",
+    "allow": "none"
+    }
+  ],
+  "schemas": [
+    {
+      "user": "alice",
+      "schema": "finance",
+      "owner": true
+    },
+    {
+      "user": "bob",
+      "schema": "public",
+      "owner": false
+    }
+  ],
+  "tables": [
+    {
+      "user": "bob",
+      "catalog": "iceberg",
+      "schema": "finance",
+      "table": "salaries",
+      "privileges": []
+    },
+    {
+      "user": "bob",
+      "catalog": "iceberg",
+      "schema": "finance",
+      "table": ".*",
+      "privileges": ["SELECT"]
+    }
+  ]
+}

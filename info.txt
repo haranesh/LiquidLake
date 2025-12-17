@@ -24,3 +24,4 @@ SELECT * FROM iceberg.nessie_test.users;
 
 -- 5. Inspect Iceberg Metadata (See snapshots created in Nessie)
 SELECT * FROM iceberg.nessie_test."users$snapshots";
+
