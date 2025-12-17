@@ -1,0 +1,18 @@
+{
+  "catalogs": [
+    {
+      "user": "admin",
+      "catalog": ".*",
+      "allow": "all"
+    },
+    {
+      "user": "analyst",
+      "catalog": "iceberg",
+      "allow": "read-only"
+    },
+    {
+      "catalog": "system",
+      "allow": "none"
+    }
+  ]
+}
