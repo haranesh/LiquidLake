@@ -3,7 +3,7 @@ version: "3.9"
 services:
   # 1. MinIO: S3-compatible storage
   minio:
-    image: quay.io/minio/minio:latest
+    image: quay.io/minio/minio:latest # RELEASE.2025-09-07T16-13-09Z
     container_name: minio
     ports:
       - "9000:9000"
@@ -16,6 +16,14 @@ services:
     command: server /data --console-address ":9001"
 
   # 2. Nessie: The Catalog (Updated to GHCR for 2025)
+  # nessie:
+  #   image: ghcr.io/projectnessie/nessie:latest # docker pull projectnessie/nessie:0.76.6-java
+  #   container_name: nessie
+  #   ports:
+  #     - "19101:19101"
+  #   environment:
+  #     - QUARKUS_HTTP_PORT=19101
+
   nessie:
     image: ghcr.io/projectnessie/nessie:latest
     container_name: nessie
@@ -23,10 +31,17 @@ services:
       - "19101:19101"
     environment:
       - QUARKUS_HTTP_PORT=19101
+      # Enables RocksDB storage engine
+      - NESSIE_VERSION_STORE_TYPE=ROCKSDB
+      # Sets the internal path for RocksDB files
+      - NESSIE_VERSION_STORE_PERSIST_ROCKS_DATABASE_PATH=/nessie/data
+    volumes:
+      # 3. Mount a local folder so data stays on your computer after restart
+      - ./nessie_data:/nessie/data
 
   # 3. Trino: The Query Engine
   trino:
-    image: trinodb/trino:latest
+    image: trinodb/trino:latest # version is  479
     container_name: trino
     ports:
       - "8080:8080"
