@@ -1,0 +1,26 @@
+to test below step
+
+step - 1:
+docker exec -it trino trino
+
+step-2:
+-- 1. Create a schema (This maps to your 'warehouse' bucket in MinIO)
+-- Ensure you have already created the 'warehouse' bucket in the MinIO UI (localhost:9001)
+CREATE SCHEMA iceberg.nessie_test;
+
+-- 2. Create a table
+CREATE TABLE iceberg.nessie_test.users (
+    id bigint,
+    name varchar,
+    active boolean
+)
+WITH (format = 'PARQUET');
+
+-- 3. Insert data (Verifies write permissions to MinIO and Nessie)
+INSERT INTO iceberg.nessie_test.users VALUES (1, 'Alice', true), (2, 'Bob', false);
+
+-- 4. Query data (Verifies read permissions)
+SELECT * FROM iceberg.nessie_test.users;
+
+-- 5. Inspect Iceberg Metadata (See snapshots created in Nessie)
+SELECT * FROM iceberg.nessie_test."users$snapshots";
