@@ -75,7 +75,7 @@ LiquidLake/
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/haranesh/LiquidLake.git
 cd LiquidLake
 ```
 
@@ -244,7 +244,7 @@ For bug reports and feature requests, please open an issue in the repository.
 
 ## License
 
-[Add your license information here]
+This project is free to use under the MIT License. Feel free to use, modify, and distribute this code as you see fit.
 
 ## Support
 
@@ -254,6 +254,11 @@ For support and questions, please refer to:
 - [DuckDB Documentation](https://duckdb.org/)
 - [Apache Spark Documentation](https://spark.apache.org/)
 - [Trino Documentation](https://trino.io/)
+
+## Contact
+
+If you need any help or would like to discuss this project, feel free to reach out:
+- [Connect on LinkedIn](https://www.linkedin.com/in/hsokharaya/)
 
 ## Acknowledgments
 
