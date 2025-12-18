@@ -1,10 +1,10 @@
-# DuckLake
+# LiquidLake
 
 A comprehensive data lake platform that combines DuckDB, Apache Spark, Trino, and Nessie for modern data processing, versioning, and analytics.
 
 ## Overview
 
-DuckLake is a Docker-based data lake solution that integrates:
+LiquidLake is a Docker-based data lake solution that integrates:
 
 - **DuckDB**: Fast in-process SQL database for analytical queries
 - **Apache Spark**: Distributed data processing framework
@@ -37,7 +37,7 @@ DuckLake is a Docker-based data lake solution that integrates:
 ## Directory Structure
 
 ```
-DuckLake/
+LiquidLake/
 ├── base/                 # Base Docker image with Hadoop ecosystem
 │   ├── Dockerfile       # Multi-service base image
 │   ├── entrypoint.sh    # Container initialization script
@@ -76,7 +76,7 @@ DuckLake/
 
 ```bash
 git clone <repository-url>
-cd DuckLake
+cd LiquidLake
 ```
 
 ### 2. Build and Start Services
@@ -176,11 +176,11 @@ If you encounter a segmentation fault from the DuckDB service:
 2. **Update DuckDB**: Update to the latest stable version in the Dockerfile
 3. **Review logs**: 
    ```bash
-   docker-compose logs ducklake_duckdb
+   docker-compose logs LiquidLake_duckdb
    ```
 4. **Restart service**:
    ```bash
-   docker-compose restart ducklake_duckdb
+   docker-compose restart LiquidLake_duckdb
    ```
 
 ### Spark Connection Issues
