@@ -53,5 +53,22 @@ services:
       - minio
       - nessie
 
+    # 4. Jupyter Notebook Server
+  jupyter:
+    image: liquidelake-jupyter:latest
+    container_name: jupyter
+    ports:
+      - "8888:8888"
+      - "4041:4040"
+    volumes:
+      - ./jupyter/notebook:/home/jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - HOME=/home/jupyter
+    depends_on:
+      - minio
+      - nessie
+      - trino
+    
 volumes:
   minio_data:

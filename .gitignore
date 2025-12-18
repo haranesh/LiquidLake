@@ -1,1 +1,7 @@
 /nessie_data/*
+/.jupyter
+/jupyter/notebook/.ivy2
+/jupyter/notebook/.ipython
+/jupyter/notebook/.jupyter
+/jupyter/notebook/.ipynb_checkpoints
+/jupyter/notebook/.local
